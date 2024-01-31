@@ -1,0 +1,22 @@
+# Correction Fault Attack on Expansion of A
+
+## Prerequisites
+For the code, we the NTL and GMP libraries to be installed.
+Furthermore, the machine must feature avx2 instructions (the code will fail with `illegal instruction` if this is not the case).
+
+## Building
+`make -j` builds:
+- the adapted avx2 dilithium code
+- the gen_faulty_sigX (X=2,3,5) programs that generate simulated faulty signatures
+- test_X_fA (X=2,3,5) programs that recover the secret key coefficients in NTT domain (note that this, depending on the number of threads available on your system, might run for multiple hours)
+
+We tested this successfully (and without warnings) with gcc versions 11.4.0 and 13.1.0.
+
+## Running
+```
+chmod +x run.sh
+./run.sh
+```
+runs for each Dilithium parameter set:
+- the fault simulation
+- the secret key recovery

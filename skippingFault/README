@@ -1,0 +1,21 @@
+# Skipping Fault Correction Attack
+
+## Prerequisites
+For the code, we require the NTL and GMP libraries to be installed.
+
+## Building
+`make` builds:
+- the adapted C dilithium code
+- test_X_skip (X=2,3,5) generates programs that recover the secret key using simulated skipping faults, 10 tests each
+- test_X_skip_shuff (X=2,3,5) generates programs that recover the secret key using simulated skipping faults that are injected in random coefficients, 2 tests each
+- test_X_skip_ineff (X=2,3,5) generates programs that recover the secret key using only ineffective simulated skipping faults, 5 tests each
+
+We tested this successfully (and without warnings) with gcc version 11.4.0.
+
+## Running
+```
+chmod +x run.sh
+./run.sh
+```
+runs for each Dilithium parameter set:
+- the secret key recovery for all three attack variants

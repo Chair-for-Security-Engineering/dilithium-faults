@@ -1,0 +1,18 @@
+# Lattice Reduction to recover s1 from known coefficients in s1hat
+
+## Prerequisites
+For the code, we require the NTL, FPLLL and GMP libraries to be installed.
+
+## Building
+`make` builds:
+- the C dilithium2 code
+- the test_latticered program that recovers s1 polynomials from X known coefficients in s1hat at random positions, for X={240, 128}, BKZ block sizes being {15,30}, testing 8 polynomials each. The blocksize is chosen s.t. all the recoveries were successful in our testing. It can be lowered to achieve faster solving times but risking occasional failed recoveries.
+
+We tested this successfully (and without warnings) with gcc version 11.4.0.
+
+## Running
+```
+chmod +x run.sh
+./run.sh
+```
+runs the lattice reduction tests
